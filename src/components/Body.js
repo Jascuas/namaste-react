@@ -1,9 +1,11 @@
-import RestaurantCard, { withPromtedLabel } from "./RestaurantCard";
-import { useState, useEffect, useContext } from "react";
-import Shimmer from "./Shimmer";
+import { useContext, useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
+
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import RestaurantCard, { withPromtedLabel } from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
@@ -47,7 +49,7 @@ const Body = () => {
 
   const { loggedInUser, setUserName } = useContext(UserContext);
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
